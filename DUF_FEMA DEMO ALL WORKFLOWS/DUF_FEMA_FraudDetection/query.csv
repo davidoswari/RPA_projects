@@ -1,0 +1,5 @@
+﻿firstname,lastname,county,applicantage,grossincome,damagedzipcode,id,claimAmount,decedentName,fraudrisk,validBI,validDC,validFR
+Deadpool,Wilson,San Patricio (County),50-64,"<$15,000",78368,6083be59c60665085db58b8e,,,,,,
+Saul,Mccartney,Nueces (County),19-34,"$15,000-$30,000",78408,6083be59c60665085db58b95,,,,,,
+Paul,Mccartney,Nueces (County),50-64,"<$15,000",78401,6083be59c60665085db58b92,,,,,,
+Jane,Doe,Jefferson (County),35-49,"<$15,000",77705,6083be59c60665085db58b9f,,,,,,

@@ -1,0 +1,657 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="2367,6751" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:aa="clr-namespace:AttendedRobotStatus.Activities;assembly=AttendedRobotStatus" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="32">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.DataTableUtilities</x:String>
+      <x:String>UiPath.CSV</x:String>
+      <x:String>UiPath.CSV.Activities</x:String>
+      <x:String>UiPath.Database</x:String>
+      <x:String>UiPath.Database.Activities</x:String>
+      <x:String>AttendedRobotStatus.Activities</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="60">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Database</AssemblyReference>
+      <AssemblyReference>UiPath.Database.Activities</AssemblyReference>
+      <AssemblyReference>AttendedRobotStatus</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Fraud Detection" sap:VirtualizedContainerService.HintSize="959,6686" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Default="123456789" Name="ssn" />
+      <Variable x:TypeArguments="x:String" Default="$70.99" Name="total" />
+      <Variable x:TypeArguments="ui:QueueItem" Name="TransactionItem" />
+      <Variable x:TypeArguments="x:Boolean" Name="ssn_is_valid" />
+      <Variable x:TypeArguments="x:Boolean" Name="total_is_valid" />
+      <Variable x:TypeArguments="x:String" Default="C:\UiPath\output" Name="outputFolder" />
+      <Variable x:TypeArguments="x:String" Default="123456789" Name="Reference" />
+      <Variable x:TypeArguments="x:String" Default="DeathCertificate.pdf" Name="docFileName1" />
+      <Variable x:TypeArguments="x:Boolean" Name="fileexist" />
+      <Variable x:TypeArguments="x:String" Default="Receipt.pdf" Name="docFileName2" />
+      <Variable x:TypeArguments="x:String" Default="Insurance.pdf" Name="docFileName3" />
+      <Variable x:TypeArguments="x:String" Default="DeathCertificate" Name="docType1" />
+      <Variable x:TypeArguments="x:String" Default="Receipt" Name="docType2" />
+      <Variable x:TypeArguments="x:String" Default="Insurance" Name="docType3" />
+      <Variable x:TypeArguments="ui:DatabaseConnection" Name="dbconnection" />
+      <Variable x:TypeArguments="sd:DataTable" Name="queryresult" />
+      <Variable x:TypeArguments="x:Boolean" Default="True" Name="validBI" />
+      <Variable x:TypeArguments="x:Boolean" Default="True" Name="validDC" />
+      <Variable x:TypeArguments="x:Boolean" Default="True" Name="validFR" />
+      <Variable x:TypeArguments="x:String" Name="doctor" />
+      <Variable x:TypeArguments="x:String" Name="cause" />
+      <Variable x:TypeArguments="x:String" Name="state" />
+      <Variable x:TypeArguments="x:String" Name="dc_date" />
+      <Variable x:TypeArguments="x:String" Name="county" />
+      <Variable x:TypeArguments="x:String" Name="business" />
+      <Variable x:TypeArguments="x:String" Name="purchaser" />
+      <Variable x:TypeArguments="x:String" Name="professionalServicesCost" />
+      <Variable x:TypeArguments="x:String" Name="cremationAndFuneralReceipt" />
+      <Variable x:TypeArguments="x:String" Name="cashAdvancedItems" />
+      <Variable x:TypeArguments="x:String" Name="tax" />
+      <Variable x:TypeArguments="x:String" Name="name" />
+      <Variable x:TypeArguments="x:String" Default="Low" Name="fraudRisk" />
+      <Variable x:TypeArguments="x:String" Name="mailingAddress" />
+      <Variable x:TypeArguments="x:String" Name="facilityAddress" />
+      <Variable x:TypeArguments="x:Boolean" Default="True" Name="mailingAddress_is_valid" />
+      <Variable x:TypeArguments="x:Int32" Name="foundAddressCount" />
+      <Variable x:TypeArguments="x:Boolean" Name="facility_is_valid" />
+      <Variable x:TypeArguments="x:String" Name="fraudRiskString">
+        <Variable.Default>
+          <Literal x:TypeArguments="x:String" Value="" />
+        </Variable.Default>
+      </Variable>
+      <Variable x:TypeArguments="x:String" Name="dcFile" />
+      <Variable x:TypeArguments="x:String" Name="receiptFile" />
+      <Variable x:TypeArguments="x:String" Name="insuranceFile" />
+      <Variable x:TypeArguments="x:String" Name="hasInsurance" />
+      <Variable x:TypeArguments="x:Int32" Name="affectedRecords" />
+      <Variable x:TypeArguments="x:String" Name="fraudRiskStringDC">
+        <Variable.Default>
+          <Literal x:TypeArguments="x:String" Value="" />
+        </Variable.Default>
+      </Variable>
+      <Variable x:TypeArguments="x:String" Default="Low" Name="fraudRiskDC" />
+      <Variable x:TypeArguments="x:String" Default="Low" Name="fraudRiskFR" />
+      <Variable x:TypeArguments="x:String" Name="fraudRiskStringFR">
+        <Variable.Default>
+          <Literal x:TypeArguments="x:String" Value="" />
+        </Variable.Default>
+      </Variable>
+      <Variable x:TypeArguments="x:String" Name="fraudRiskStringBI">
+        <Variable.Default>
+          <Literal x:TypeArguments="x:String" Value="" />
+        </Variable.Default>
+      </Variable>
+      <Variable x:TypeArguments="x:String" Default="Low" Name="fraudRiskBI" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <aa:AttendedRobotStatus DisplayName="Attended Robot Status" ErrorLvl="False" sap:VirtualizedContainerService.HintSize="917,79" sap2010:WorkflowViewState.IdRef="AttendedRobotStatus_1" InfoLvl="False" Message="starting fraud check" WarnLvl="False" />
+    <ui:GetQueueItem ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Get Transaction Item" FolderPath="Default" sap:VirtualizedContainerService.HintSize="917,22" sap2010:WorkflowViewState.IdRef="GetQueueItem_1" QueueType="FEMA_DOC_FRAUD_DETECTION" TransactionItem="[TransactionItem]" />
+    <Assign sap:VirtualizedContainerService.HintSize="917,60" sap2010:WorkflowViewState.IdRef="Assign_2">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[Reference]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[TransactionItem.Reference]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="917,377" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
+      <ui:MultipleAssign.AssignOperations>
+        <scg:List x:TypeArguments="ui:AssignOperation" Capacity="16">
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_16">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[docFileName1]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">[TransactionItem.SpecificContent("docFileName1").ToString]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_17">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[docFileName2]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">[TransactionItem.SpecificContent("docFileName2").ToString]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_18">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[docFileName3]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">[TransactionItem.SpecificContent("docFileName3").ToString]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_19">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[docType1]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">[TransactionItem.SpecificContent("docType1").ToString]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_20">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[docType2]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">[TransactionItem.SpecificContent("docType2").ToString]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_21">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[docType3]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">[TransactionItem.SpecificContent("docType3").ToString]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_22">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[dcFile]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">[TransactionItem.SpecificContent("dcFile").ToString]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_23">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[receiptFile]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">[TransactionItem.SpecificContent("receiptFile").ToString]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_24">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[insuranceFile]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">[TransactionItem.SpecificContent("insuranceFile").ToString]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_25">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[hasInsurance]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">[TransactionItem.SpecificContent("hasInsurance").ToString]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+        </scg:List>
+      </ui:MultipleAssign.AssignOperations>
+    </ui:MultipleAssign>
+    <aa:AttendedRobotStatus DisplayName="Attended Robot Status" ErrorLvl="False" sap:VirtualizedContainerService.HintSize="917,79" sap2010:WorkflowViewState.IdRef="AttendedRobotStatus_2" InfoLvl="False" Message="Parsing Files" WarnLvl="False" />
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke parseFiles workflow" sap:VirtualizedContainerService.HintSize="917,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="parseFiles.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="Reference">[Reference]</InArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="ssn">[ssn]</OutArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="total">[total]</OutArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="name">[name]</OutArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="dc_date">[dc_date]</OutArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="doctor">[doctor]</OutArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="cause">[cause]</OutArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="state">[state]</OutArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="county">[county]</OutArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="business">[business]</OutArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="purchaser">[purchaser]</OutArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="professionalServicesCost">[professionalServicesCost]</OutArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="cremationAndFuneralReceipt">[cremationAndFuneralReceipt]</OutArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="cashAdvancedItems">[cashAdvancedItems]</OutArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="outputFolder">[outputFolder]</InArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="tax">[tax]</OutArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="mailingAddress">[mailingAddress]</OutArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="facilityAddress">[facilityAddress]</OutArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="receiptFile">[receiptFile]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="insuranceFile">[insuranceFile]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="dcFile">[dcFile]</InArgument>
+        <InArgument x:TypeArguments="x:Boolean" x:Key="hasInsurance" />
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <aa:AttendedRobotStatus DisplayName="Attended Robot Status" ErrorLvl="False" sap:VirtualizedContainerService.HintSize="917,79" sap2010:WorkflowViewState.IdRef="AttendedRobotStatus_3" InfoLvl="False" Message="checking fields" WarnLvl="False" />
+    <Sequence DisplayName="Insurance Validator" sap:VirtualizedContainerService.HintSize="917,502" sap2010:WorkflowViewState.IdRef="Sequence_12">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <If Condition="[hasInsurance.Contains(&quot;True&quot;)]" sap:VirtualizedContainerService.HintSize="653,410" sap2010:WorkflowViewState.IdRef="If_15">
+        <If.Then>
+          <Sequence sap:VirtualizedContainerService.HintSize="304,252" sap2010:WorkflowViewState.IdRef="Sequence_15">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_24">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">[fraudRiskBI]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String">Low</InArgument>
+              </Assign.Value>
+            </Assign>
+            <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_25">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">[fraudRiskStringBI]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String">valid insurance.</InArgument>
+              </Assign.Value>
+            </Assign>
+          </Sequence>
+        </If.Then>
+        <If.Else>
+          <Sequence sap:VirtualizedContainerService.HintSize="304,152" sap2010:WorkflowViewState.IdRef="Sequence_16">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_31">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">[fraudRiskBI]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String">
+                  <Literal x:TypeArguments="x:String" Value="" />
+                </InArgument>
+              </Assign.Value>
+            </Assign>
+          </Sequence>
+        </If.Else>
+      </If>
+    </Sequence>
+    <Sequence DisplayName="duplicate check" sap:VirtualizedContainerService.HintSize="917,1014" sap2010:WorkflowViewState.IdRef="Sequence_14">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:DatabaseConnect DatabaseConnection="[dbconnection]" DisplayName="Connect" sap:VirtualizedContainerService.HintSize="484,59" sap2010:WorkflowViewState.IdRef="DatabaseConnect_2" ProviderName="System.Data.Odbc" ConnectionString="Dsn=PostgreSQL35W;pwd=rpademo4282021;uid=rpademo" />
+      <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="484,64" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[&quot;UPDATE basicform_report&quot; + &#xA;&quot; SET &quot;&quot;fraudrisk&quot;&quot; = 'Medium' where &quot;&quot;decedentName&quot;&quot; = '&quot; + name + &quot;', &quot;&quot;claimAmount&quot;&quot; =  '&quot; + total + &quot;'&quot;]" />
+      <ui:ExecuteNonQuery ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" AffectedRecords="[affectedRecords]" CommandType="Text" DisplayName="Execute Non Query" ExistingDbConnection="[dbconnection]" sap:VirtualizedContainerService.HintSize="484,88" sap2010:WorkflowViewState.IdRef="ExecuteNonQuery_2" Sql="[&quot;UPDATE basicform_report&quot; + &#xA;&quot; SET &quot;&quot;fraudrisk&quot;&quot; = 'Medium' where &quot;&quot;decedentName&quot;&quot; = '&quot; + name + &quot;' AND &quot;&quot;claimAmount&quot;&quot; =  '&quot; + total + &quot;'&quot;]">
+        <ui:ExecuteNonQuery.Parameters>
+          <scg:Dictionary x:TypeArguments="x:String, Argument" />
+        </ui:ExecuteNonQuery.Parameters>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </ui:ExecuteNonQuery>
+      <ui:DatabaseDisconnect DatabaseConnection="[dbconnection]" DisplayName="Disconnect" sap:VirtualizedContainerService.HintSize="484,22" sap2010:WorkflowViewState.IdRef="DatabaseDisconnect_2" />
+      <If Condition="[affectedRecords&gt;1]" sap:VirtualizedContainerService.HintSize="484,529" sap2010:WorkflowViewState.IdRef="If_14">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <If.Then>
+          <Sequence sap:VirtualizedContainerService.HintSize="304,352" sap2010:WorkflowViewState.IdRef="Sequence_13">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_26">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">[fraudRiskDC]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String">Medium</InArgument>
+              </Assign.Value>
+            </Assign>
+            <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_27">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">[fraudRisk]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String">Medium</InArgument>
+              </Assign.Value>
+            </Assign>
+            <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_28">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">[fraudRiskStringDC]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String">[fraudRiskStringDC + "Decedent has already been claimed, duplicate document detected. "]</InArgument>
+              </Assign.Value>
+            </Assign>
+          </Sequence>
+        </If.Then>
+      </If>
+    </Sequence>
+    <Sequence DisplayName="Death Cert Validator" sap:VirtualizedContainerService.HintSize="917,2465" sap2010:WorkflowViewState.IdRef="Sequence_6">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke SSN Validator workflow" sap:VirtualizedContainerService.HintSize="875,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="SSN Validator.xaml">
+        <ui:InvokeWorkflowFile.Arguments>
+          <InArgument x:TypeArguments="x:String" x:Key="in_ssn">[ssn]</InArgument>
+          <OutArgument x:TypeArguments="x:Boolean" x:Key="out_ssn_is_valid">[ssn_is_valid]</OutArgument>
+        </ui:InvokeWorkflowFile.Arguments>
+      </ui:InvokeWorkflowFile>
+      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke addressValidator workflow - MAILING" sap:VirtualizedContainerService.HintSize="875,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="addressValidator.xaml">
+        <ui:InvokeWorkflowFile.Arguments>
+          <InArgument x:TypeArguments="x:String" x:Key="in_address">[mailingAddress]</InArgument>
+          <OutArgument x:TypeArguments="x:Boolean" x:Key="address_is_valid">[mailingAddress_is_valid]</OutArgument>
+        </ui:InvokeWorkflowFile.Arguments>
+      </ui:InvokeWorkflowFile>
+      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke addressValidator workflow- FACILITY ADDRESS" sap:VirtualizedContainerService.HintSize="875,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="addressValidator.xaml">
+        <ui:InvokeWorkflowFile.Arguments>
+          <InArgument x:TypeArguments="x:String" x:Key="in_address">[facilityAddress]</InArgument>
+          <OutArgument x:TypeArguments="x:Boolean" x:Key="address_is_valid">[facility_is_valid]</OutArgument>
+        </ui:InvokeWorkflowFile.Arguments>
+      </ui:InvokeWorkflowFile>
+      <If Condition="[mailingAddress_is_valid.Equals(False) or facility_is_valid.Equals(False) or ssn_is_valid.Equals(False)]" sap:VirtualizedContainerService.HintSize="875,1917" sap2010:WorkflowViewState.IdRef="If_10">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <If.Then>
+          <Sequence sap:VirtualizedContainerService.HintSize="526,1759" sap2010:WorkflowViewState.IdRef="Sequence_8">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <If Condition="[ssn_is_valid.Equals(False)]" sap:VirtualizedContainerService.HintSize="484,529" sap2010:WorkflowViewState.IdRef="If_11">
+              <If.Then>
+                <Sequence sap:VirtualizedContainerService.HintSize="304,352" sap2010:WorkflowViewState.IdRef="Sequence_17">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_15">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:String">[fraudRiskStringDC]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:String">[fraudRiskStringDC + "SSN is not valid on death certificate. "]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_33">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:String">[fraudRiskDC]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:String">Medium</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_32">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:String">[fraudRisk]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:String">Medium</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                </Sequence>
+              </If.Then>
+            </If>
+            <If Condition="[mailingAddress_is_valid.Equals(False)]" sap:VirtualizedContainerService.HintSize="484,529" sap2010:WorkflowViewState.IdRef="If_8">
+              <If.Then>
+                <Sequence sap:VirtualizedContainerService.HintSize="304,352" sap2010:WorkflowViewState.IdRef="Sequence_18">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_12">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:String">[fraudRiskStringDC]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:String">[fraudRiskStringDC + "The mailing address listed on death certificate is not valid. "]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_34">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:String">[fraudRiskDC]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:String">High</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_35">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:String">[fraudRisk]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:String">High</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                </Sequence>
+              </If.Then>
+            </If>
+            <If Condition="[facility_is_valid.Equals(False)]" sap:VirtualizedContainerService.HintSize="484,529" sap2010:WorkflowViewState.IdRef="If_9">
+              <If.Then>
+                <Sequence sap:VirtualizedContainerService.HintSize="304,352" sap2010:WorkflowViewState.IdRef="Sequence_19">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_37">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:String">[fraudRisk]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:String">High</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_13">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:String">[fraudRiskStringDC]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:String">[fraudRiskStringDC + "The facility address on the death certificate is not valid. "]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_36">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:String">[fraudRiskDC]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:String">High</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                </Sequence>
+              </If.Then>
+            </If>
+          </Sequence>
+        </If.Then>
+        <If.Else>
+          <Sequence sap:VirtualizedContainerService.HintSize="304,152" sap2010:WorkflowViewState.IdRef="Sequence_9">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_14">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">[fraudRiskStringDC]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String">[fraudRiskStringDC +"valid total and addresses"]</InArgument>
+              </Assign.Value>
+            </Assign>
+          </Sequence>
+        </If.Else>
+      </If>
+    </Sequence>
+    <Sequence DisplayName="receipt validator" sap:VirtualizedContainerService.HintSize="917,754" sap2010:WorkflowViewState.IdRef="Sequence_7">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Price Validator workflow" sap:VirtualizedContainerService.HintSize="611,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Price Validator.xaml">
+        <ui:InvokeWorkflowFile.Arguments>
+          <InArgument x:TypeArguments="x:String" x:Key="in_amount">[total]</InArgument>
+          <OutArgument x:TypeArguments="x:Boolean" x:Key="out_amount_valid">[total_is_valid]</OutArgument>
+        </ui:InvokeWorkflowFile.Arguments>
+      </ui:InvokeWorkflowFile>
+      <If Condition="[total_is_valid.Equals(False)]" sap:VirtualizedContainerService.HintSize="611,510" sap2010:WorkflowViewState.IdRef="If_12">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <If.Then>
+          <Sequence sap:VirtualizedContainerService.HintSize="304,352" sap2010:WorkflowViewState.IdRef="Sequence_10">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_17">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">[fraudRiskFR]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String">High</InArgument>
+              </Assign.Value>
+            </Assign>
+            <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_30">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">[fraudRisk]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String">High</InArgument>
+              </Assign.Value>
+            </Assign>
+            <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_16">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">[fraudRiskStringFR]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String">[fraudRiskStringFR + "The total on the receipt is not valid. "]</InArgument>
+              </Assign.Value>
+            </Assign>
+          </Sequence>
+        </If.Then>
+        <If.Else>
+          <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_20">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:String">[fraudRiskStringFR]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:String">receipt is valid</InArgument>
+            </Assign.Value>
+          </Assign>
+        </If.Else>
+      </If>
+    </Sequence>
+    <aa:AttendedRobotStatus DisplayName="Attended Robot Status" ErrorLvl="False" sap:VirtualizedContainerService.HintSize="917,80" sap2010:WorkflowViewState.IdRef="AttendedRobotStatus_4" InfoLvl="False" Message="fraudRisk determined, updating database" WarnLvl="False" />
+    <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="917,98" sap2010:WorkflowViewState.IdRef="MultipleAssign_3">
+      <ui:MultipleAssign.AssignOperations>
+        <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_27">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[fraudRiskString]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">[fraudRiskStringDC + fraudRiskStringFR + fraudRiskStringBI]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+        </scg:List>
+      </ui:MultipleAssign.AssignOperations>
+    </ui:MultipleAssign>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke DBSequence workflow" sap:VirtualizedContainerService.HintSize="917,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_7" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="DBSequence.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InOutArgument x:TypeArguments="ui:DatabaseConnection" x:Key="dbconnection">[dbconnection]</InOutArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="fraudRisk">[fraudRisk]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="Reference">[Reference]</InArgument>
+        <InOutArgument x:TypeArguments="sd:DataTable" x:Key="queryresult">[queryresult]</InOutArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="fraudRiskString">[fraudRiskString]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="total">[total]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="fraudRiskDC">[fraudRiskDC]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="fraudRiskFR">[fraudRiskFR]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="fraudRiskBI">[fraudRiskBI]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="fraudRiskStringDC">[fraudRiskStringDC]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="fraudRiskStringFR">[fraudRiskStringFR]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="fraudRiskStringBI">[fraudRiskStringBI]</InArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:SetTransactionStatus Reason="{x:Null}" ServiceBaseAddress="{x:Null}" TimeoutMS="{x:Null}" ContinueOnError="True" DisplayName="Set Transaction Status" ErrorType="Business" sap:VirtualizedContainerService.HintSize="917,80" sap2010:WorkflowViewState.IdRef="SetTransactionStatus_1" Status="Successful" TransactionItem="[TransactionItem]">
+      <ui:SetTransactionStatus.Analytics>
+        <scg:Dictionary x:TypeArguments="x:String, InArgument" />
+      </ui:SetTransactionStatus.Analytics>
+      <ui:SetTransactionStatus.Output>
+        <scg:Dictionary x:TypeArguments="x:String, InArgument" />
+      </ui:SetTransactionStatus.Output>
+    </ui:SetTransactionStatus>
+    <aa:AttendedRobotStatus DisplayName="Attended Robot Status" ErrorLvl="False" sap:VirtualizedContainerService.HintSize="917,80" sap2010:WorkflowViewState.IdRef="AttendedRobotStatus_5" InfoLvl="False" Message="Fraud Check Done" WarnLvl="False" />
+  </Sequence>
+</Activity>
